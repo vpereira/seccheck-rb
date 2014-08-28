@@ -1,8 +1,11 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    abstract_method (1.2.1)
     celluloid (0.15.2)
       timers (~> 1.1.0)
+    cheetah (0.4.0)
+      abstract_method (~> 1.2)
     hashdiff (0.2.1)
     json-compare (0.1.8)
     timers (1.1.0)
@@ -12,5 +15,6 @@ PLATFORMS
 
 DEPENDENCIES
   celluloid
+  cheetah
   hashdiff
   json-compare
