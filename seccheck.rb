@@ -9,6 +9,7 @@ require 'json-compare'
 module SecCheck 
 
    class ConfigDiff
+
         def initialize(a,b)
             @a = a
             @b = b
@@ -24,6 +25,7 @@ module SecCheck
         def initialize(db)
             @db = db
         end
+
         # check if the permissions are correctly being set
         def check_var_spool_mail
             @db.select { |k,v| k.match /^\/var\/spool\/mail/ }.each do |k,v|
