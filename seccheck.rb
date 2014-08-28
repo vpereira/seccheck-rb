@@ -105,6 +105,7 @@ module SecCheck
    class FSScanner
         attr_accessor :dir
         
+        # it should accept a set of directories. and maybe a way to blacklist some of them
         def initialize(dir = '.')
             @dir = dir
         end
@@ -177,7 +178,7 @@ module SecCheck
     end
 end
 
-require_relative 'plugins/proc_check'
+require_relative 'plugins/proc_file'
 
 if __FILE__ == $0
    # retrieving:
