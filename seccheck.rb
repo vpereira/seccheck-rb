@@ -40,7 +40,10 @@ end
 
 require_relative 'lib/file_info'
 require_relative 'lib/fs_scanner'
+
+# plugins
 require_relative 'plugins/proc_file'
+require_relative 'plugins/rpm_md5_check'
 
 if __FILE__ == $0
    # retrieving:
