@@ -43,7 +43,9 @@ if __FILE__ == $0
     fs_scanner = SecCheck::FSScanner.new ARGV[0]
     hash_fs = fs_scanner.search
     JsonCompare.get_diff(old_hash_fs.to_json,hash_fs.to_json)
-    SecCheck::FileSystemCheck.new(hash_fs[:files]).check_var_spool_mail
+    SecCheck::FileSystemCheck.new(hash_fs[:files]).check_var_spool_mail.each do |v|
+      puts "WARNING: #{v[0]} owned by #{v[1]}"
+    end
     #puts SecCheck::ConfigDiff.new(old_hash_fs,hash_fs).run
     #File.open("test.marshal", "w"){|to_file| Marshal.dump(hash_fs, to_file)}
     File.open("test.json", "w"){ |to_file| to_file.write(hash_fs.to_json)}

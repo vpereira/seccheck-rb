@@ -8,11 +8,13 @@ module SecCheck
       # TODO
       # implement the logic
       def check_var_spool_mail
-        @db.select { |k,v| k.match /\/var\/spool\/mail/ }.each do |k,v|
+        wrong_owners = []
+        @db.select { |k,v| k[/\/var\/spool\/mail/] }.each do |k,v|
           if v[:owner] != File.basename(k)
-            puts "WARNING: #{k} owned by #{v[:owner]}"
+            wrong_owners << [k,v[:owner]]
           end
         end
+        wrong_owners
       end
   end
 end
